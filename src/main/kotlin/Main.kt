@@ -1,7 +1,6 @@
 package org.example
 
-import org.example.quiz_1.getDecimalNumber
+import java.util.Scanner
 
 fun main() {
-    getDecimalNumber()
 }
