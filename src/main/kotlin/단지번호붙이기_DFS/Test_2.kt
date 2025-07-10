@@ -1,43 +1,44 @@
-package org.example
+package org.example.단지번호붙이기_DFS
 
-import java.util.*
-
-
+/**
+ * 2차 문제 풀이
+ */
 fun main() {
     val n = readln().toInt()
-    val map = Array(n) { readln().toCharArray().map { it.digitToInt() }.toIntArray()}
+    val map = Array(n) { readln().toCharArray().map { it.digitToInt() }.toIntArray() }
     val visited = Array(n) { BooleanArray(n) }
+
+    val result = mutableListOf<Int>()
 
     val dx = arrayOf(0, 0, -1, 1)
     val dy = arrayOf(-1, 1, 0, 0)
 
-    val result = mutableListOf<Int>()
-
     fun dfs(x: Int, y: Int): Int {
-        var count = 1
+        var counter = 1
         visited[x][y] = true
+
         for (i in 0 until 4) {
             val nx = x + dx[i]
             val ny = y + dy[i]
+
             if (nx in 0 until n && ny in 0 until n && !visited[nx][ny] && map[nx][ny] == 1) {
-                count += dfs(nx, ny)
+                counter += dfs(nx, ny)
             }
         }
-        return count
+        return counter
     }
 
-    for (i in 0 until n ){
-        for (j in 0 until n ) {
+    for (i in 0 until n) {
+        for (j in 0 until n) {
             if (!visited[i][j] && map[i][j] == 1) {
-                val houseCount = dfs(i, j)
-                result.add(houseCount)
+                result.add(dfs(i, j))
             }
         }
     }
 
-    result.sort()
     println(result.size)
-    result.forEach { println(it) }
+    result.sort()
+    result.forEach {
+        println(it)
+    }
 }
-
-
