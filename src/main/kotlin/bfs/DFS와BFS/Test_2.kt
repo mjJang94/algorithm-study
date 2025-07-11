@@ -1,4 +1,4 @@
-package DFS와BFS
+package bfs.DFS와BFS
 
 import java.util.*
 
