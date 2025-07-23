@@ -1,4 +1,4 @@
-package bfs.붙임성좋은총총이
+package bfs_dfs.붙임성좋은총총이
 
 fun main() {
     val n = readln().toInt()
