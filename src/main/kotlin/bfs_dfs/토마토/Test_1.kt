@@ -1,4 +1,4 @@
-package bfs.토마토
+package bfs_dfs.토마토
 
 import java.util.LinkedList
 import java.util.Queue

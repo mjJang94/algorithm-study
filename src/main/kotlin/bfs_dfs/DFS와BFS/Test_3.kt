@@ -1,4 +1,4 @@
-package bfs.DFS와BFS
+package bfs_dfs.DFS와BFS
 
 import java.util.LinkedList
 import java.util.Queue
@@ -9,12 +9,10 @@ fun main() {
 
     repeat(m) {
         val (a, b) = readln().split(" ").map { it.toInt() }
-        //서로를 넣는 이유는 양방향 연결이기 때문
         graph[a].add(b)
         graph[b].add(a)
     }
 
-    //마구 잡이로 들어간 연결 번호들 정렬
     for (adj in graph) {
         adj.sort()
     }

@@ -1,10 +1,13 @@
-package bfs.DFS와BFS
+package bfs_dfs.DFS와BFS
 
-import java.util.*
+import java.util.LinkedList
+import java.util.Queue
 
 fun main() {
     val (n, m, start) = readln().split(" ").map { it.toInt() }
     val graph = Array(n + 1) { mutableListOf<Int>() }
+    val visitedDfs = BooleanArray(n + 1)
+    val visitedBfs = BooleanArray(n + 1)
 
     repeat(m) {
         val (a, b) = readln().split(" ").map { it.toInt() }
@@ -12,33 +15,32 @@ fun main() {
         graph[b].add(a)
     }
 
-    for (adj in graph) {
-        adj.sort()
-    }
+    graph.map { it.sort() }
 
-    val visitedDfs = BooleanArray(n + 1)
-    val visitedBfs = BooleanArray(n + 1)
-
-    fun dfs(v: Int, graph: Array<MutableList<Int>>, visited: BooleanArray) {
-        visited[v] = true
-        println("$v")
-        for (next in graph[v]) {
-            if (!visited[next]){
+    //재귀로 풀고 방문여부 체크 꼭
+    fun dfs(start: Int, graph: Array<MutableList<Int>>, visited: BooleanArray) {
+        visited[start] = true
+        print("$start")
+        for (next in graph[start]) {
+            if (!visited[next]) {
                 dfs(next, graph, visited)
             }
         }
     }
 
-    fun bfs(v: Int, graph: Array<MutableList<Int>>, visited: BooleanArray) {
+    //Queue 풀고 방문여부 체크 꼭
+    fun bfs(start: Int, graph: Array<MutableList<Int>>, visited: BooleanArray) {
         val queue: Queue<Int> = LinkedList()
-        queue.add(v)
-        println("$v")
+        queue.add(start)
+        visited[start] = true
+
         while (queue.isNotEmpty()) {
             val v = queue.poll()
+            print("$v")
             for (next in graph[v]) {
                 if (!visited[next]) {
-                    queue.add(next)
                     visited[next] = true
+                    queue.add(next)
                 }
             }
         }

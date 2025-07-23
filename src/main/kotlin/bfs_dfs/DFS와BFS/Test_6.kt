@@ -1,4 +1,4 @@
-package bfs.DFS와BFS
+package bfs_dfs.DFS와BFS
 
 import java.util.LinkedList
 import java.util.Queue
@@ -6,6 +6,8 @@ import java.util.Queue
 fun main() {
     val (n, m, start) = readln().split(" ").map { it.toInt() }
     val graph = Array(n + 1) { mutableListOf<Int>() }
+    val visitedDfs = BooleanArray(n + 1)
+    val visitedBfs = BooleanArray(n + 1)
 
     repeat(m) {
         val (a, b) = readln().split(" ").map { it.toInt() }
@@ -13,12 +15,8 @@ fun main() {
         graph[b].add(a)
     }
 
-    for (adj in graph) {
-        adj.sort()
-    }
+    graph.map { it.sort() }
 
-    val visitedDfs = BooleanArray(n + 1)
-    val visitedBfs = BooleanArray(n + 1)
 
     fun dfs(start: Int, graph: Array<MutableList<Int>>, visited: BooleanArray) {
         visited[start] = true
@@ -40,8 +38,8 @@ fun main() {
             print("$v")
             for (next in graph[v]) {
                 if (!visited[next]) {
-                    queue.add(next)
                     visited[next] = true
+                    queue.add(next)
                 }
             }
         }

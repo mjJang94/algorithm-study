@@ -1,4 +1,4 @@
-package bfs.미로탐색
+package bfs_dfs.미로탐색
 
 import java.util.LinkedList
 import java.util.Queue

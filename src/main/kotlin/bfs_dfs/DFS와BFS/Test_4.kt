@@ -1,4 +1,4 @@
-package bfs.DFS와BFS
+package bfs_dfs.DFS와BFS
 
 import java.util.LinkedList
 import java.util.Queue
