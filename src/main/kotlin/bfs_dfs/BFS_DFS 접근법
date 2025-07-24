@@ -4,4 +4,4 @@ BFS = Breadth-First Search (너비 우선 탐색)
 
 DFS = Depth-First Search (깊이 우선 탐색)
 - BooleanArray와 for/while문을 사용하고 재귀(혹은 스택)를 하는게 핵심!
-- 모든 경우의수 확인하는 문제에 주로 사용 
+- 모든 경우의수 확인하는 문제에 주로 사용
