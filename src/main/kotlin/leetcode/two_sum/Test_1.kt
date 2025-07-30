@@ -1,4 +1,4 @@
-package leetcode.twosum
+package leetcode.two_sum
 
 fun main() {
     val s = twoSum(intArrayOf(3, 2, 4), target = 6)
