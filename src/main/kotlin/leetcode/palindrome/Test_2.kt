@@ -14,8 +14,6 @@ fun main() {
         }
 
         return num == reversed || num == reversed / 10
-
-        return false
     }
 
     isPalindrome(121)
