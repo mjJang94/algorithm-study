@@ -1,4 +1,4 @@
-package baekjoon.브루트포스
+package baekjoon.브루트포스.영화감독숌
 
 fun main() {
     val n = readln().toInt()
